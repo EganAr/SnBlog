@@ -11,7 +11,7 @@ export default async function Search({
   params: { query: string };
 }) {
   const search = await getData(
-    `http://localhost:3000/api/search?query=` + params.query,
+    `https://sn-blog-rho.vercel.app/api/search?query=` + params.query,
     0
   );
 

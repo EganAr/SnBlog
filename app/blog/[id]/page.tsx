@@ -11,7 +11,7 @@ export default async function SinglePost({
   params: { id: number };
 }) {
   const blog = await getData(
-    `http://localhost:3000/api/blog?id=` + params.id,
+    `https://sn-blog-rho.vercel.app/api/blog?id=` + params.id,
     0
   );
   return (
