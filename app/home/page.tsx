@@ -6,9 +6,9 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 
 export default async function Home() {
-  const blogPromise = await getData("http://127.0.0.1:3000/api/blog", 0);
+  const blogPromise = await getData("https://127.0.0.1:3000/api/blog", 0);
   const categoriesPromise = await getData(
-    "http://127.0.0.1:3000/api/categories",
+    "https://127.0.0.1:3000/api/categories",
     0
   );
 
