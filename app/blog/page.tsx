@@ -118,9 +118,7 @@ export default async function Blog({
 }
 
 export async function getData(URL: string, Time: number) {
-  const res = await fetch(URL, {
-    cache: "no-store",
-  });
+  const res = await fetch(URL);
 
   await new Promise((resolve) => setTimeout(resolve, Time));
 
