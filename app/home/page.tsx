@@ -6,9 +6,9 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 
 export default async function Home() {
-  const blogPromise = await getData("https://sn-blog-rho.vercel.app/api/blog", 0);
+  const blogPromise = await getData("http://127.0.0.1:3000/api/blog", 0);
   const categoriesPromise = await getData(
-    "https://sn-blog-rho.vercel.app/api/categories",
+    "http://127.0.0.1:3000/api/categories",
     0
   );
 

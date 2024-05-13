@@ -13,9 +13,9 @@ export default async function Blog({
   let page = parseInt(searchParams.page || 1);
   const pageSize = 4;
 
-  const blogPromise = await getData("https://sn-blog-rho.vercel.app/api/blog", 0);
+  const blogPromise = await getData("http://127.0.0.1:3000/api/blog", 0);
   const categoriesPromise = await getData(
-    "http://localhost:3000/api/categories",
+    "http://127.0.0.1:3000/api/categories",
     0
   );
 

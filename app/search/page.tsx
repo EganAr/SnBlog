@@ -6,7 +6,7 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 
 export default async function SearchPage() {
-  const search = await getData("https://sn-blog-rho.vercel.app/api/search", 0);
+  const search = await getData("http://127.0.0.1:3000/api/search", 0);
 
   return (
     <>

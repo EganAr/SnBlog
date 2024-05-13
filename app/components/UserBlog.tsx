@@ -13,7 +13,7 @@ export default function UserBlog({ username }: any) {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/user?query=${username}`
+          `http://127.0.0.1:3000/api/user?query=${username}`
         );
         const blog = await res.json();
 

@@ -13,7 +13,7 @@ export default async function SingleCategory({
   params: { categories: string };
 }) {
   const singleCategory = await getData(
-    "https://sn-blog-rho.vercel.app/api/blog?categories=" + params.categories,
+    "http://127.0.0.1:3000/api/blog?categories=" + params.categories,
     0
   );
 

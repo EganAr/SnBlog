@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar";
 import Link from "next/link";
 
 export default async function CategoryPage() {
-  const category = await getData("https://sn-blog-rho.vercel.app/api/categories", 1000);
+  const category = await getData("http://127.0.0.1:3000/api/categories", 1000);
 
   return (
     <>
