@@ -6,10 +6,13 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 
 export default async function Home() {
-  const blogPromise = await getData("https://sn-blog-rho.vercel.app/api/blog", 0);
+  const blogPromise = await getData(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/blog`,
+    200
+  );
   const categoriesPromise = await getData(
-    "https://sn-blog-rho.vercel.app/api/categories",
-    0
+    `${process.env.NEXT_PUBLIC_API_URL}/api/categories`,
+    200
   );
 
   const [blog, categories] = await Promise.all([
@@ -166,7 +169,10 @@ export default async function Home() {
 }
 
 export async function Hot() {
-  const blog = await getData("http://localhost:3000/api/blog", 0);
+  const blog = await getData(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/blog`,
+    200
+  );
   return (
     <div className="bg-slate-950 rounded-lg p-4">
       <p className="text-xs font-thin text-gray-500">{"What's Hot?"}</p>

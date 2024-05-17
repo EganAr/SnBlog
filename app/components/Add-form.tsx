@@ -47,6 +47,7 @@ export default function Addform() {
         src: file,
         user: user?.displayName,
         userProfile: user?.photoURL,
+        date: new Date().toDateString(),
       });
       reset();
     } catch (e) {

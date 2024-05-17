@@ -109,5 +109,11 @@ export function ContactLottie() {
 }
 
 export function HomeLottie() {
-  return <Lottie animationData={bg3} loop={true} className="absolute right-0 top-32 lg:top-32 md:top-24 lg:px-20 w-56 md:w-96 lg:w-[600px] " />;
+  return (
+    <Lottie
+      animationData={bg3}
+      loop={true}
+      className="absolute right-0 top-24 lg:top-10 md:top-20 lg:px-16 w-56 md:w-96 lg:w-[600px] "
+    />
+  );
 }

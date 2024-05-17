@@ -11,8 +11,8 @@ export default async function SinglePost({
   params: { id: number };
 }) {
   const blog = await getData(
-    `http://127.0.0.1:3000/api/blog?id=` + params.id,
-    0
+    `${process.env.NEXT_PUBLIC_API_URL}/api/blog?id=` + params.id,
+    200
   );
   return (
     <>

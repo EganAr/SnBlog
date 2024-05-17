@@ -13,10 +13,13 @@ export default async function Blog({
   let page = parseInt(searchParams.page || 1);
   const pageSize = 4;
 
-  const blogPromise = await getData("http://127.0.0.1:3000/api/blog", 0);
+  const blogPromise = await getData(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/blog`,
+    200
+  );
   const categoriesPromise = await getData(
-    "http://127.0.0.1:3000/api/categories",
-    0
+    `${process.env.NEXT_PUBLIC_API_URL}/api/categories`,
+    200
   );
 
   const [blog, categories] = await Promise.all([
@@ -121,6 +124,9 @@ export async function getData(URL: string, Time: number) {
   const res = await fetch(URL);
 
   await new Promise((resolve) => setTimeout(resolve, Time));
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
   return res.json();
 }
