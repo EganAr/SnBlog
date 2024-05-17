@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col">
           <div className="flex items-center gap-4">
             <Image
-              src={"/bg/layer 3.png"}
+              src={"https://avatars.githubusercontent.com/u/141480038?v=4"}
               alt=""
               width={800}
               height={800}

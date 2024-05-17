@@ -18,7 +18,7 @@ export default async function SinglePost({
     <>
       <Navbar />
       <Sidebar />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:ml-16 lg:px-12 pt-28">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:ml-16 lg:pl-12 pt-28">
         <div>
           <Image
             src={blog.data.src}
@@ -54,7 +54,7 @@ export default async function SinglePost({
             </div>
           </div>
         </div>
-        <div className="pt-8 w-[90vw] md:w-[75vw] lg:w-[80vw] flex ">
+        <div className="pt-8 w-[90vw] md:w-[75vw] lg:w-[80vw]">
           <div className="w-full md:w-[75vw] lg:w-[60vw] text-gray-300 ">
             <p className="text-xs md:text-sm lg:text-base text-justify tracking-tight lg:tracking-wide font-thin">
               {blog.data.desc}
@@ -66,9 +66,9 @@ export default async function SinglePost({
               {blog.data.desc3}
             </p>
           </div>
-          <div className="hidden md:hidden lg:block w-[18vw] absolute left-[75vw]">
-            <Hot />
-          </div>
+        </div>
+        <div className="hidden md:hidden lg:block w-[18vw] ml-64">
+          <Hot />
         </div>
       </div>
       <Footer />
