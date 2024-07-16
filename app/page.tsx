@@ -13,7 +13,7 @@ export default function Home() {
             <h2 className="text-xl font-mono tracking-tight">Blog App</h2>
           </div>
 
-          <div className="flex flex-row justify-between items-start text-3xl md:text-4xl lg:text-5xl px-4 pt-20 md:pt-20 lg:pl-12 lg:pt-16 w-screen ">
+          <div className="flex flex-row justify-between items-start text-3xl md:text-4xl lg:text-5xl px-4 pt-20 md:pt-20 lg:pl-12 lg:pt-32 w-screen ">
             <div className="flex flex-col items-start justify-start gap-2">
               <h1 className="text-teal-700 font-thin">Unraveling the </h1>
               <h1 className="text-teal-700 font-thin">Digital Realm:</h1>
@@ -41,29 +41,29 @@ export default function Home() {
           <Image
             src={"/svg/tailwind.png"}
             alt=""
-            width={2000}
-            height={2000}
+            width={400}
+            height={400}
             className="w-8 h-8"
           />
           <Image
             src={"/svg/typescript.png"}
             alt=""
-            width={2000}
-            height={2000}
+            width={400}
+            height={400}
             className="w-8 h-8"
           />
           <Image
             src={"/svg/next-js.svg"}
             alt=""
-            width={2000}
-            height={2000}
+            width={400}
+            height={400}
             className="w-8 h-8 text-white"
           />
           <Image
             src={"/svg/firebase-1.svg"}
             alt=""
-            width={2000}
-            height={2000}
+            width={400}
+            height={400}
             className="w-8 h-8"
           />
         </div>

@@ -9,7 +9,7 @@ import { z } from "zod";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
 import { useState } from "react";
-import { UploadCloud } from "lucide-react";
+import { Loader2, UploadCloud } from "lucide-react";
 import { useUser } from "./getUser";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -17,6 +17,9 @@ import Link from "next/link";
 export default function Addform() {
   type AddSchema = z.infer<typeof AddDataSchema>;
   const [file, setFile] = useState("");
+  const [pending, setPending] = useState(true);
+  const [error, setError] = useState<string | undefined>();
+
   const user = useUser();
   const {
     register,
@@ -35,13 +38,14 @@ export default function Addform() {
       await uploadBytes(storageRef, file);
       const url = await getDownloadURL(storageRef);
       setFile(url);
-    } catch (error) {
-      console.error("Error uploading image:", error);
+    } catch (e) {
+      console.log("Error uploading image:", e);
     }
   };
 
   const onSubmit: SubmitHandler<AddSchema> = async (data: FieldValues) => {
     try {
+      setPending(false);
       await addDoc(collection(firestore, "Blog"), {
         ...data,
         src: file,
@@ -49,9 +53,11 @@ export default function Addform() {
         userProfile: user?.photoURL,
         date: new Date().toDateString(),
       });
-      reset();
     } catch (e) {
       console.error("Error adding document: ", e);
+    } finally {
+      setPending(true);
+      reset();
     }
   };
 
@@ -175,12 +181,26 @@ export default function Addform() {
             />
             {errors.desc && <p>{errors.desc.message}</p>}
             <div className="w-80 md:w-[676px] lg:w-[1115px] flex justify-center items-center mb-10">
-              <button
-                className="mt-4 w-full h-10 rounded-md bg-teal-800 hover:bg-teal-950 ease-in duration-300"
-                type="submit"
-              >
-                Submit
-              </button>
+              {error && (
+                <p className="text-red-500 text-xs w-full flex justify-center items-center">
+                  {error}
+                </p>
+              )}
+              {pending === true ? (
+                <button
+                  type="submit"
+                  className="bg-teal-900 w-80 md:w-[676px] lg:w-[1115px] text-white py-2 rounded-lg mt-4 lg:mt-10 hover:bg-teal-700 transition-all duration-200"
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="bg-teal-900 w-80 md:w-[676px] lg:w-[1115px] text-white py-2 rounded-lg mt-4 lg:mt-10 flex justify-center items-center"
+                >
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                </button>
+              )}
             </div>
           </div>
         </form>

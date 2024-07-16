@@ -7,7 +7,7 @@ export default function Contact() {
         <div className="flex justify-between items-center ">
           <div className="w-[350px] md:w-[750px] lg:w-[500px] mx-4 md:mx-0 lg:mx-8 mt-10 rounded-xl shadow-2xl">
             <div className="flex justify-center items-center">
-              <h1 className="text-xl text-teal-700 font-bold">Contact Us</h1>
+            <h1 className="text-xl text-teal-700 font-bold">{"Contact Us ( NOT FUNCTIONAL )"}</h1>
             </div>
 
             <form className="w-full md:px-14 lg:px-4 py-2 lg:py-5 flex flex-col gap-4">

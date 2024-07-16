@@ -25,8 +25,7 @@ export default async function Search({
           Results for <p className="text-red-500">{params.query}</p>{" "}
         </h1>
         <div className="flex flex-col justify-start items-start gap-8 pt-10">
-          {search.data.map((data: any) => (
-            <>
+          {search.data.map((data: any) => (       
               <div key={data.id} className="flex">
                 <Image
                   src={data.src}
@@ -55,7 +54,6 @@ export default async function Search({
                   </Link>
                 </div>
               </div>
-            </>
           ))}
         </div>
       </div>

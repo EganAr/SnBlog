@@ -39,40 +39,36 @@ export default async function Blog({
           {blog.data
             .slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize)
             .map((image: any) => (
-              <>
-                <div key={image.id} className="flex">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={2000}
-                    height={2000}
-                    className="min-w-40 min-h-40 w-40 h-40 md:w-[250px] md:h-[200px] lg:w-[300px] lg:h-60 object-cover"
-                  />
-                  <div className="flex flex-col pl-4 lg:pl-10 font-thin">
-                    <div className="flex gap-4 items-center text-sm md:text-base lg:text-base">
-                      <h1 className="font-thin text-gray-500">
-                        {image.date} *
-                      </h1>
-                      <h2 className={`text-${image.color}-500`}>
-                        {image.categories}
-                      </h2>
-                    </div>
-                    <h1 className="w-48 md:w-72 lg:w-72 pt-3 md:pt-6 lg:pt-6 text-sm md:text-base lg:text-xl">
-                      {image.title}
-                    </h1>
-                    <p className="line-clamp-2 w-48 md:w-72 lg:w-72 pt-2 lg:pt-6 text-xs  md:text-sm lg:text-sm text-gray-500">
-                      {image.desc}
-                    </p>
-                    <Link
-                      href={`/blog/${image.id}`}
-                      className="font-thin text-xs md:text-sm lg:text-sm pt-2 md:pt-6 lg:pt-6 hover:opacity-80"
-                    >
-                      read more
-                      <div className="bg-gradient-to-r from-violet-500  to-fuchsia-500 h-0.5 w-[70px] rounded-full"></div>
-                    </Link>
+              <div key={image.id} className="flex">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={2000}
+                  height={2000}
+                  className="min-w-40 min-h-40 w-40 h-40 md:w-[250px] md:h-[200px] lg:w-[300px] lg:h-60 object-cover"
+                />
+                <div className="flex flex-col pl-4 lg:pl-10 font-thin">
+                  <div className="flex gap-4 items-center text-sm md:text-base lg:text-base">
+                    <h1 className="font-thin text-gray-500">{image.date} *</h1>
+                    <h2 className={`text-${image.color}-500`}>
+                      {image.categories}
+                    </h2>
                   </div>
+                  <h1 className="w-48 md:w-72 lg:w-72 pt-3 md:pt-6 lg:pt-6 text-sm md:text-base lg:text-xl">
+                    {image.title}
+                  </h1>
+                  <p className="line-clamp-2 w-48 md:w-72 lg:w-72 pt-2 lg:pt-6 text-xs  md:text-sm lg:text-sm text-gray-500">
+                    {image.desc}
+                  </p>
+                  <Link
+                    href={`/blog/${image.id}`}
+                    className="font-thin text-xs md:text-sm lg:text-sm pt-2 md:pt-6 lg:pt-6 hover:opacity-80"
+                  >
+                    read more
+                    <div className="bg-gradient-to-r from-violet-500  to-fuchsia-500 h-0.5 w-[70px] rounded-full"></div>
+                  </Link>
                 </div>
-              </>
+              </div>
             ))}
           <div className="w-full pr-2 md:pr-0 lg:pr-0 flex justify-between items-center ">
             <Link
@@ -127,7 +123,6 @@ export async function getData(URL: string, Time: number) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-
   return res.json();
 }
 
